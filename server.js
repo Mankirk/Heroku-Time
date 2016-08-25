@@ -5,7 +5,7 @@ var app=express();
 app.get('/',function(req,res){
     console.log("request made for "+req.url);
     console.log(req.params);
-    fs.createReadStream('./page.html').pipe(res);
+    fs.createReadStream('./index.html').pipe(res);
     
     
 });
@@ -45,6 +45,6 @@ app.get('/:time',function(req,res){
     
 })
 
-app.listen(8080,function(){
+app.listen(process.env.PORT || 3500,function(){
     console.log('server is online');
 })
